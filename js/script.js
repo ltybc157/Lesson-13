@@ -202,7 +202,7 @@ window.addEventListener('DOMContentLoaded', function () {
         prev = document.querySelectorAll('.prev'), //взыввем наши // cтрелочку крторая двигает слайдер назад
         next = document.querySelectorAll('.next'), //взыввем наши // cтрелочку крторая двигает слайдер вперед
         dotsWrap = document.querySelectorAll('.slider-dots'), //получаем обертку наших точек
-        dots = document.querySelector('.dot'); //получаем все точки которые будут использоваться
+        dots = document.querySelectorAll('.dot'); //получаем все точки которые будут использоваться
         
         showSlides(slideIndex);
 
@@ -226,6 +226,18 @@ window.addEventListener('DOMContentLoaded', function () {
     dots[slideIndex - 1].classList.add('dot-active');// показываем такой записью 1 точку
  }
 
+function plusSlides(n) {//это функция меняет slideIndex для чтобы менять картинки в слайде
+    showSlides(slideIndex += n);
+}
+ function currentSlaide(n) { //это функция прописывается чтобы узнать какой сейчас слайд стоит
+    showSlides(slideIndex = n);
+}
 
+ prev.addEventListener('click', function() {//это пишется для кнопки перемещение назад
+plusSlides(-1); 
+});
 
+next.addEventListener('click', function() {//это пишется для кнопки перемещение вперед
+  plusSlides(1);
+})
 });
